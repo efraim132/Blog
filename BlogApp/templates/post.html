@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post['title'] }}</title>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ post['title'] }}</h1>
+        <p>{{ post['content'] }}</p>
+        <a href="{{ url_for('edit_post', post_id=post['_id']) }}" class="btn btn-warning">Edit</a>
+        <a href="{{ url_for('delete_post', post_id=post['_id']) }}" class="btn btn-danger">Delete</a>
+
+        <h3>Comments</h3>
+        <form method="POST" action="{{ url_for('comment', post_id=post['_id']) }}">
+            <div class="form-group">
+                <textarea name="content" class="form-control" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Comment</button>
+        </form>
+
+        <ul class="list-group mt-4">
+            {% for comment in comments %}
+            <li class="list-group-item">{{ comment['content'] }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
