@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'styles.css')}}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bd-navbar mb-5">
+        <a class="navbar-brand" href="{{ url_for('home')}}">GrebCo</a>
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('home')}}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('login')}}">Login</a>
+            </li>
+        </ul>
+        </div>
+    </nav>
+    {% block BodyContent %}
+    {% endblock %}
+</body>
+<footer class="py-4 text-black-50">
+    <div class="container text-center">
+      <small>Copyright &copy; Efraim Grebnev</small>
+    </div>
+</footer>
+</html>

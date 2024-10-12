@@ -51,5 +51,9 @@ def comment(post_id):
     mongo.db.comments.insert_one({'post_id': post_id, 'content': content})
     return redirect(url_for('view_post', post_id=post_id))
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    return "login in progress!"
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

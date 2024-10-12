@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Home</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
-    <div class="container">
-        <h1>My Blog</h1>
+{% extends "base.html" %}
+    {% block title %}Blog Home{% endblock %}
+    {% block BodyContent %}
+    <div class="container text-center top">
+        <h1 class="">My Blog</h1>
         <a href="{{ url_for('create_post') }}" class="btn btn-primary">Create New Post</a>
+        </div>
+    <div class="container"> 
         <ul class="list-group mt-4">
             {% for post in posts %}
             <li class="list-group-item">
@@ -21,5 +17,4 @@
             {% endfor %}
         </ul>
     </div>
-</body>
-</html>
+    {% endblock %}
