@@ -26,7 +26,15 @@
                     <a class="nav-link" href="{{ url_for('home')}}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('login')}}">Login</a>
+                    {% if 'username' in session %}
+    <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+{% else %}
+    <a class="nav-link"  href="{{ url_for('login') }}">Login</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link"  href="{{ url_for('signup') }}">Sign Up</a>
+</li>   
+{% endif %}
                 </li>
             </ul>
         </div>
@@ -38,6 +46,7 @@
     <footer class="py-4 text-black-50">
         <div class="container text-center">
           <small>Copyright &copy; Efraim Grebnev</small>
+          <small>Blog App Version 1</small>
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
